@@ -4,14 +4,13 @@ class Queue
   def initialize(max_size)
     @max_size = max_size
     @queue = Array.new
-    @front = nil
   end
 
   # returns true is the data structure is empty, false otherwise
   # time: O(1) / Constant - does not depend on the size of the queue
   # space : O(1) / Constant - varaiables are independent of the size of the queue
   def is_empty()
-    @front == nil
+    @queue == []
   end
 
   # returns true is the data structure is empty, false otherwise
@@ -25,7 +24,7 @@ class Queue
   # time: O(n) / Linear -
   # space : O(1) / Constant -
   def size()
-    return nil if @front == nil
+    return nil if is_empty
 
     i = 0
 
@@ -82,8 +81,6 @@ class Queue
     return "Queue is full" if is_full
 
     @queue.push(value)
-
-    @front = 0 if size == nil
   end
 
   # removes and returns the next item in line
@@ -94,7 +91,6 @@ class Queue
 
     temp = @queue[0]
     @queue.delete_at(0)
-    @front = nil if size == 0
 
     return temp
   end

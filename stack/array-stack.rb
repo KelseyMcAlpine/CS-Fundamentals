@@ -4,14 +4,13 @@ class Stack
   def initialize(max_size)
     @max_size = max_size
     @stack = Array.new
-    @top = nil
   end
 
   # returns true is the data structure is empty, false otherwise
     # time: O(n) - dependent on size of stack
     # space: O(1) - variables independent of size of stack
   def is_empty()
-    @top == nil || @stack.size == 0
+    @stack == []
   end
 
   # returns true if the data structure is full, false otherwise
@@ -25,7 +24,7 @@ class Stack
     # time: O(n) - dependent on size of stack
     # space: O(1) - variables independent of size of stack
   def size()
-    return nil if @top == nil
+    return nil if is_empty
 
     i = 0
 
@@ -42,7 +41,7 @@ class Stack
   def top()
     return "Stack is empty." if is_empty
 
-    return @stack.last # could also use @stack[@top]
+    return @stack[-1]
   end
 
   # returns the minimum integer data value in the data structure
@@ -51,7 +50,7 @@ class Stack
   def min()
     return "Stack is empty." if is_empty
 
-    min = @top
+    min = @stack[-1]
 
     @stack.each do | i |
       min = i if i < min
@@ -66,7 +65,7 @@ class Stack
   def max()
     return "Stack is empty." if is_empty
 
-    max = @top
+    max = @stack[-1]
 
     @stack.each do | i |
       max = i if i > max
@@ -81,8 +80,6 @@ class Stack
   def push(value)
     return "Stack is full" if is_full
 
-    size == nil ? @top = 0 : @top += 1
-
     @stack.push(value)
   end
 
@@ -92,9 +89,8 @@ class Stack
   def pop()
     return "Stack is empty" if is_empty
 
-    temp = @stack[@top]
-    @stack.delete_at(@top)
-    @top -= 1
+    temp = @stack[-1]
+    @stack.delete_at(-1)
 
     return temp
   end

@@ -39,9 +39,7 @@ class Stack
     # time: O(1) - does not need to go through all the elements
     # space: O(1) - variables independent of size of stack
   def top()
-    return "Stack is empty." if is_empty
-
-    return @stack[-1]
+    is_empty ? "Stack is empty." : @stack[-1]
   end
 
   # returns the minimum integer data value in the data structure
@@ -78,9 +76,7 @@ class Stack
     # time: O(1) - not dependent on size of stack
     # space: O(1) - variables independent of size of stack
   def push(value)
-    return "Stack is full" if is_full
-
-    @stack.push(value)
+    is_full ? "Stack is full" : @stack.push(value)
   end
 
   # removes and returns the top item

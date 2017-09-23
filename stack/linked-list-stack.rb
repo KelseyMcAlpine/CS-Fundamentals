@@ -37,7 +37,7 @@ class Stack
   # time: O(n) / Linear - the time it takes to count all nodes is dependent on the size of stack
   # space: O(1) / Constant - the variables used are independet of the size of the stack
   def size()
-    return nil if @head == nil
+    return nil if is_empty
 
     current = @head
     size = 0
@@ -55,9 +55,7 @@ class Stack
   # time: O(1) / Constant - time to access the head does not depend on the size of the stack
   # space: O(1) / Constant - variables used do not depend on size of the stack
   def top()
-    return "Stack is empty." if is_empty
-
-    return @head.value
+    is_empty ? "Stack is empty." : @head.value
   end
 
   # --------
@@ -111,7 +109,7 @@ class Stack
 
     new_node = Node.new(value)
 
-    if @head == nil
+    if is_empty
       @head = new_node
     else
       new_node.next = @head

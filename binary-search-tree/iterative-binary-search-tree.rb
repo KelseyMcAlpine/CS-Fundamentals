@@ -1,26 +1,74 @@
-# Design an iterative algorithm, deduce the space and time complexity and then,
-# author functions to do the following. For each of the problems below,
-# assume you are given a Binary Search Tree where each node contains an integer
-# data and links to the left and right children nodes.
+class Node
+  attr_reader :value
+  attr_accessor :left, :right
 
-# Search for a given integer value in the Binary Search Tree.
-# Return true if the value is found, false otherwise.
+  def initialize(value)
+    @value = value
+    @left = nil
+    @right = nil
+  end
+end
 
-# Insert a given integer value in the Binary Search Tree.
+class BinarySearchTree
+  def initialize()
+    @root = nil
+  end
 
-# Compute the height of the Binary Search Tree.
+  # Search for a given integer value in the Binary Search Tree.
+  # Return true if the value is found, false otherwise.
+  # Time: O() / -
+  # Space: O() / -
+  def search(value)
+    puts "not implemented"
+  end
 
-# Print values in the Binary Search Tree in pre-order.
+  # Insert a given integer value in the Binary Search Tree.
+  # Time: O() / -
+  # Space: O() / -
+  def insert(value)
+    puts "not implemented"
+  end
 
-# Print values in the Binary Search Tree in in-order.
+  # Delete a given integer value in the Binary Search Tree.
+  # Time: O() / -
+  # Space: O() / -
+  def delete(value)
+    puts "not implemented"
+  end
 
-# Print values in the Binary Search Tree in post-order.
+  # Compute the height of the Binary Search Tree.
+  # Time: O() / -
+  # Space: O() / -
+  def height()
+    puts "not implemented"
+  end
 
-# Print values in the Binary Search Tree in level-order.
-# (Breadth-first traversal)
+  # Print values in the Binary Search Tree in pre-order.
+  # Time: O() / -
+  # Space: O() / -
+  def print_preorder()
+    puts "not implemented"
+  end
 
-# Write a function to print all integer values in a binary 
-# tree in pre-order traversal iteratively. (Hint: Use a Stack.)
+  # Print values in the Binary Search Tree in in-order.
+  # Time: O() / -
+  # Space: O() / -
+  def print_in_order()
+    puts "not implemented"
+  end
 
-# Write a function to print all integer values in a binary tree in
-# breadth first traversal iteratively. (Hint: Use a Queue.)
+  # Print values in the Binary Search Tree in post-order.
+  # Time: O() / -
+  # Space: O() / -
+  def print_post_order()
+    puts "not implemented"
+  end
+
+  # Print values in the Binary Search Tree in level-order.
+  # (Breadth-first traversal)
+  # Time: O() / -
+  # Space: O() / -
+  def print_level_order()
+    puts "not implemented"
+  end
+end

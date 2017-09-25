@@ -10,8 +10,17 @@ class Node
 end
 
 class BinarySearchTree
+  attr_reader :root
+
   def initialize()
     @root = nil
+  end
+
+  # Return true if the bst is empty, false otherwise.
+  # Time: O() / -
+  # Space: O() / -
+  def is_empty()
+    @root == nil
   end
 
   # Search for a given integer value in the Binary Search Tree.

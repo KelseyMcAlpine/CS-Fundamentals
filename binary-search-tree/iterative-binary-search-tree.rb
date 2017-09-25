@@ -14,19 +14,50 @@ class BinarySearchTree
     @root = nil
   end
 
+  # Return true if the bst is empty, false otherwise.
+  # Time: O() / -
+  # Space: O() / -
+  def is_empty()
+    @root == nil
+  end
+
   # Search for a given integer value in the Binary Search Tree.
   # Return true if the value is found, false otherwise.
   # Time: O() / -
   # Space: O() / -
   def search(value)
-    puts "not implemented"
+    return false if is_empty
+
+    current = @root
+
+    while current != nil
+      if current.value == value
+        return true
+      else
+        current = current.value < value ? current.right : current.left
+      end
+    end
+
+    return false
   end
 
   # Insert a given integer value in the Binary Search Tree.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(log n) / -
+  # Space: O(1) / -
   def insert(value)
-    puts "not implemented"
+    new_node = Node.new(value)
+
+    return @root = new_node if is_empty
+
+    current = @root
+    parent = nil
+
+    while current != nil
+      parent = current
+      current = value <= current.value ? current.left : current.right
+    end
+
+    value <= parent.value ? parent.left = new_node : parent.right = new_node
   end
 
   # Delete a given integer value in the Binary Search Tree.
@@ -47,13 +78,25 @@ class BinarySearchTree
   # Time: O() / -
   # Space: O() / -
   def print_preorder()
-    puts "not implemented"
+    return "Empty BST" if is_empty
+
+    stack = [@root]
+
+    while !stack.empty?
+      current = stack.pop
+
+      puts current.value
+
+      stack.push(current.right) if current.right
+      stack.push(current.left) if current.left
+    end
   end
 
   # Print values in the Binary Search Tree in in-order.
   # Time: O() / -
   # Space: O() / -
   def print_in_order()
+    return "Empty BST" if is_empty
     puts "not implemented"
   end
 
@@ -61,6 +104,7 @@ class BinarySearchTree
   # Time: O() / -
   # Space: O() / -
   def print_post_order()
+    return "Empty BST" if is_empty
     puts "not implemented"
   end
 
@@ -69,6 +113,7 @@ class BinarySearchTree
   # Time: O() / -
   # Space: O() / -
   def print_level_order()
+    return "Empty BST" if is_empty
     puts "not implemented"
   end
 end

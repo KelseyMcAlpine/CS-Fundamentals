@@ -1,7 +1,7 @@
 # uncomment file to test
-require './array-stack.rb'
+# require './array-stack.rb'
 # require './2-queue-stack.rb'
-# require './linked-list-stack.rb'
+require './linked-list-stack.rb'
 
 # started with empty stack
 my_stack = Stack.new(10)

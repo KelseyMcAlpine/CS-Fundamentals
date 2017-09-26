@@ -3,6 +3,7 @@ class Stack
 
   def initialize(max_size)
     @max_size = max_size
+    @current_size = 0
     @stack = Array.new
   end
 
@@ -17,7 +18,7 @@ class Stack
     # time: O(n) - dependent on size of stack
     # space: O(1) - variables independent of size of stack
   def is_full()
-    @stack.size == @max_size
+    @current_size == @max_size
   end
 
   # returns the number of items in the data structure
@@ -76,7 +77,10 @@ class Stack
     # time: O(1) - not dependent on size of stack
     # space: O(1) - variables independent of size of stack
   def push(value)
-    is_full ? "Stack is full" : @stack.push(value)
+    return "Stack is full" if is_full
+
+    @stack.push(value)
+    @current_size += 1
   end
 
   # removes and returns the top item
@@ -87,6 +91,7 @@ class Stack
 
     temp = @stack[-1]
     @stack.delete_at(-1)
+    @current_size -= 1
 
     return temp
   end

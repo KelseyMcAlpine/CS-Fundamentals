@@ -14,6 +14,7 @@ class Stack
   def initialize(max_size)
     @head = nil
     @max_size = max_size
+    @current_size = 0
   end
 
   # --------
@@ -29,7 +30,7 @@ class Stack
   # time: O(n) / Linear - is dependent on the size of the stack
   # space: O(1) / Constant - variables used are independet of the size of the stack
   def is_full()
-    self.size == @max_size
+    @current_size == @max_size
   end
 
   # --------
@@ -116,7 +117,7 @@ class Stack
       @head = new_node
     end
 
-    return
+    @current_size += 1
   end
 
   # --------
@@ -134,6 +135,8 @@ class Stack
 
     temp = @head.value
     @head = @head.next
+    @current_size -= 1
+    
     return temp
   end
 

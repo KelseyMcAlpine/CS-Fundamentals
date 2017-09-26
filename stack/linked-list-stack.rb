@@ -27,7 +27,7 @@ class Stack
 
   # --------
   # returns true is the data structure is full, false otherwise
-  # time: O(n) / Linear - is dependent on the size of the stack
+  # time: O(1) / Constant - does not dependent on the size of the stack
   # space: O(1) / Constant - variables used are independet of the size of the stack
   def is_full()
     @current_size == @max_size
@@ -136,7 +136,7 @@ class Stack
     temp = @head.value
     @head = @head.next
     @current_size -= 1
-    
+
     return temp
   end
 

@@ -118,22 +118,35 @@ class BinarySearchTree
 
     stack = [@root]
 
-    while !stack.empty?
+    until stack.empty?
       current = stack.pop
 
       puts current.value
 
-      stack.push(current.right) if current.right
-      stack.push(current.left) if current.left
+      stack.push(current.right) unless current.right.nil?
+      stack.push(current.left) unless current.left.nil?
     end
   end
 
   # Print values in the Binary Search Tree in in-order.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(n) / Linear - Each node must be printed so is dependent on the size of the BST.
+  # Space: O(log n) / -
   def print_in_order()
     return "Empty BST" if is_empty
-    puts "not implemented"
+
+    current = @root
+    stack = []
+
+    while current || !stack.empty?
+      if current != nil
+        stack.push(current)
+        current = current.left
+      elsif !stack.empty?
+        current = stack.pop()
+        puts current.value
+        current = current.right
+      end
+    end
   end
 
   # Print values in the Binary Search Tree in post-order.
@@ -141,7 +154,22 @@ class BinarySearchTree
   # Space: O() / -
   def print_post_order()
     return "Empty BST" if is_empty
-    puts "not implemented"
+
+    stack_1 = [@root]
+    stack_2 = []
+
+    until stack_1.empty?
+      current = stack_1.pop
+      stack_2.push(current)
+
+      stack_1.push(current.left) unless current.left.nil?
+      stack_1.push(current.right) unless current.right.nil?
+    end
+
+    until stack_2.empty?
+      current = stack_2.pop
+      puts current.value
+    end
   end
 
   # Print values in the Binary Search Tree in level-order.

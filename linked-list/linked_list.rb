@@ -146,9 +146,8 @@ class LinkedList
   def visit
     current = @head
 
-    while current != nil
+    while current
       puts current.data
-
       current = current.next
     end
   end

@@ -1,7 +1,7 @@
 # uncomment file to test
-require './array-queue.rb'
+# require './array-queue.rb'
 # require './2-stack-queue.rb'
-# require './linked-list-queue.rb'
+require './linked-list-queue.rb'
 
 # started with empty queue
 my_queue = Queue.new(10)

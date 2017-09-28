@@ -13,6 +13,7 @@ class Queue
 
   def initialize(max_size)
     @max_size = max_size
+    @current_size = 0
     @head = nil
   end
 
@@ -24,10 +25,10 @@ class Queue
   end
 
   # returns true is the data structure is full, false otherwise
-  # time: O(n) / Linear - is dependent on the size of the queue
+  # time: O(1) / Constant - does not depend on the size of the queue
   # space: O(1) / Constant - variables used are independet of the size of the queue
   def is_full()
-    size == @max_size
+    @current_size == @max_size
   end
 
   # returns the number of items in the data structure
@@ -101,6 +102,7 @@ class Queue
     return "Queue is full" if is_full
 
     new_node = Node.new(value)
+    @current_size += 1
 
     return @head = new_node if is_empty
 
@@ -121,6 +123,7 @@ class Queue
 
     current = @head
     @head = current.next
+    @current_size -= 1
 
     return current.value
   end

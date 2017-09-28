@@ -3,6 +3,7 @@ class Queue
 
   def initialize(max_size)
     @max_size = max_size
+    @current_size = 0
     @queue = Array.new
   end
 
@@ -14,10 +15,10 @@ class Queue
   end
 
   # returns true is the data structure is empty, false otherwise
-  # time: O(n) / Linear - is dependent on the size of the queue
+  # time: O(1) / Constant - does not depend on the size of the queue
   # space : O(1) / Constant - vaaibles are independent of the size of the queue
   def is_full()
-    @queue.size == @max_size
+    @current_size == @max_size
   end
 
   # returns the number of items in the data structure
@@ -73,10 +74,13 @@ class Queue
   end
 
   # adds item to the queue
-  # time: O(1) / Constant -
+  # time: O(1) / Constant - does not depend on the size of the Queue
   # space : O(1) / Constant - variables used are independent of the size of the queue
   def enqueue(value)
-    is_full ? "Queue is full" : @queue.push(value)
+    return "Queue is full" if is_full
+
+    @queue.push(value)
+    @current_size += 1
   end
 
   # removes and returns the next item in line
@@ -87,6 +91,7 @@ class Queue
 
     temp = @queue[0]
     @queue.delete_at(0)
+    @current_size -= 1
 
     return temp
   end

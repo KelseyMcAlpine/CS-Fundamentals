@@ -1,3 +1,4 @@
+# do each of these both ways
 # 1. reverse the elements in an integer array in place
 
 # 2. check if a given input string is a palindrome. return true or false

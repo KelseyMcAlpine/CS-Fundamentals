@@ -18,6 +18,9 @@ puts "BUG: searching for 100 should return false" if my_bst.search(100) != false
 puts "BUG: searching for 13 should return true" if my_bst.search(13) != true
 puts "BUG: my_bst should have a height of 4" if my_bst.height != 4
 
+puts my_bst.delete(100)
+puts my_bst.delete(13)
+
 puts "\nPrinting in pre-order"
 puts "(8, 3, 1, 6, 4, 7, 10, 14, 13):"
 my_bst.print_preorder

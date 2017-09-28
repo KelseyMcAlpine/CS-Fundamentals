@@ -79,14 +79,35 @@ class BinarySearchTree
     if !current.left && !current.right
       parent.left = nil
       parent.right = nil
-
+    end
   end
 
   # Compute the height of the Binary Search Tree.
   # Time: O() / -
   # Space: O() / -
   def height()
-    puts "not implemented"
+    return 0 if is_empty
+
+    queue = [@root]
+    height = 0
+
+    while true
+      node_count = queue.length
+
+      return height if node_count == 0
+
+      height += 1
+
+      while node_count > 0
+        node = queue.shift()
+
+        queue.push(node.left) unless node.left.nil?
+
+        queue.push(node.right) unless node.right.nil?
+
+        node_count -= 1
+      end
+    end
   end
 
   # Print values in the Binary Search Tree in pre-order.

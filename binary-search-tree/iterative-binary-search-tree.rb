@@ -15,16 +15,16 @@ class BinarySearchTree
   end
 
   # Return true if the bst is empty, false otherwise.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(1) / Constant - does not depend on the size of the bst
+  # Space: O(1) / Constant - variables used do not depend on the size of the bst
   def is_empty()
     @root == nil
   end
 
   # Search for a given integer value in the Binary Search Tree.
   # Return true if the value is found, false otherwise.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(log n) / quadratic - reduce searchable nodes by half each step
+  # Space: O(1) / Constant - number of variables user are
   def search(value)
     return false if is_empty
 
@@ -42,8 +42,8 @@ class BinarySearchTree
   end
 
   # Insert a given integer value in the Binary Search Tree.
-  # Time: O(log n) / -
-  # Space: O(1) / -
+  # Time: O(log n) / quadratic - reduce search for parent node by half each step
+  # Space: O(1) / Constant - number of variables user are
   def insert(value)
     new_node = Node.new(value)
 
@@ -64,7 +64,22 @@ class BinarySearchTree
   # Time: O() / -
   # Space: O() / -
   def delete(value)
-    puts "not implemented"
+    return "BST is empty" if is_empty
+
+    parent = nil
+    current = @root
+
+    while current && current.value != value
+      parent = current
+      current = current.value > value ? current.left : current.right
+    end
+
+    return "Value to delete not found" if current == nil
+
+    if !current.left && !current.right
+      parent.left = nil
+      parent.right = nil
+
   end
 
   # Compute the height of the Binary Search Tree.

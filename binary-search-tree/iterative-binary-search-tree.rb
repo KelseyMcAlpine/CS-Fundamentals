@@ -80,11 +80,13 @@ class BinarySearchTree
       parent.left = nil
       parent.right = nil
     end
+
+    puts "NOT COMPLETE"
   end
 
   # Compute the height of the Binary Search Tree.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(n) / Linear - dependent on size of BST
+  # Space: O(n) / Linear - requires extra space for queue
   def height
     return 0 if is_empty
 
@@ -110,8 +112,8 @@ class BinarySearchTree
   end
 
   # Print values in the Binary Search Tree in pre-order.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(n) / Linear - dependent on size of BST
+  # Space: O(n) / Linear - requires extra space for stack
   def print_preorder
     return "Empty BST" if is_empty
 
@@ -128,8 +130,8 @@ class BinarySearchTree
   end
 
   # Print values in the Binary Search Tree in in-order.
-  # Time: O(n) / Linear - Each node must be printed so is dependent on the size of the BST.
-  # Space: O(log n) / -
+  # Time: O(n) / Linear - dependent on size of BST
+  # Space: O(n) / Linear - requires extra space for stack
   def print_in_order
     return "Empty BST" if is_empty
 
@@ -150,8 +152,8 @@ class BinarySearchTree
   end
 
   # Print values in the Binary Search Tree in post-order.
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(n) / Linear - dependent on size of BST
+  # Space: O(n) / Linear - requires extra space for stack
   def print_post_order
     return "Empty BST" if is_empty
 
@@ -174,8 +176,8 @@ class BinarySearchTree
 
   # Print values in the Binary Search Tree in level-order.
   # (Breadth-first traversal)
-  # Time: O() / -
-  # Space: O() / -
+  # Time: O(n) / Linear - dependent on size of BST
+  # Space: O(n) / Linear - requires extra space for queue
   def print_level_order
     return "Empty BST" if is_empty
 

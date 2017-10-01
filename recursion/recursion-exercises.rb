@@ -1,24 +1,46 @@
 # reverse the elements in an integer array in place
+# time: O /
+# space: O /
 def reverse(array)
-  puts "not implemented"
+
+  return array if array.length == 1
+
+  new_array = array.shift
+
+  reverse(array) << new_array
 end
 
 # check if a given input string is a palindrome. return true or false
+# time: O /
+# space: O /
 def is_palindrome(string)
-  return true if string.length == 0 || string.length == 1
+  return true if string.length <= 1
 
-  i = 0
-  j = -1
-
-  if string[i] == string[j]
-    return is_palindrome(string[i..j])
-  end
+  return is_palindrome(string[1..-2]) if string[0] == string[-1]
 
   return false
 end
 
 # return the nth Fib number in the Fibonacci series
-# starting at 0 (0, 1, 1, 2, 3, 5, 8, 13..)
+# time: O /
+# space: O /
 def find_nth_fib(n)
-  puts "not implemented"
+  return "n must be greater than 0" if n < 0
+
+  return 0 if n == 0
+
+  return 1 if n == 1
+
+  return find_nth_fib(n - 1) + find_nth_fib(n - 2)
+end
+
+# calculate factorial of a number
+# time: O /
+# space: O /
+def factorial(n)
+  return "n must be greater than 1" if n < 1
+
+  return 1 if n == 1
+
+  return n * factorial(n - 1)
 end

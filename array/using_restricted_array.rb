@@ -7,7 +7,9 @@ require_relative 'restricted_array.rb'
 
 SPECIAL_VALUE = 9999
 
-## Calculates the length of the restricted integer array_size
+# Calculates the length of the restricted integer array_size
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def length(array)
   i = 0
 
@@ -19,6 +21,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def print_array(array)
   i = 0
 
@@ -31,6 +35,8 @@ def print_array(array)
 end
 
 # Reverses the values in the integer array
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def reverse(array, length)
   i = 0
   j = length - 1
@@ -47,6 +53,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def search(array, length, value_to_find)
   length.times do |i|
     if array[i] == value_to_find
@@ -58,6 +66,8 @@ def search(array, length, value_to_find)
 end
 
 # Sorts the array in ascending order.
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def sort(array, length)
   length.times do |i|
     min_index = i
@@ -84,6 +94,9 @@ end
 # Deletes 'value_to_delete' if found in the array. To keep the array size
 # constant, adds an element with 'SPECIAL_VALUE' in the end. Assumes the array
 # to be sorted in ascending order.
+
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def delete(array, length, value_to_delete)
   length.times do |i|
     if array[i] == value_to_delete
@@ -100,6 +113,9 @@ end
 # Restricted array cannot be resized. So, we workaround by having a convention
 # Convention: replace all values with 'SPECIAL_VALUE'
 # Empties the restricted array by making all values = SPECIAL_VALUE
+
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def empty(array, length)
   length.times do |i|
     array[i] = SPECIAL_VALUE
@@ -108,6 +124,9 @@ end
 
 # Finds and returns the largest value element in the array which is not 'SPECIAL_VALUE'
 # Assumes that the array is not sorted.
+
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def find_largest(array, length)
   largest = array[0]
 
@@ -126,7 +145,8 @@ end
 # (Hint: if there are no elements with 'SPECIAL_VALUE', there is no room to insert)
 # All subsequent elements will need to be moved forward by one index.
 
-# TBH I struggled with this one a bit - found solution in github repo..
+# Time: O(n)/linear because each item is visited once, so the runtime is dependent on the number of items in the array.
+# Space: O(1)/constant because the number of variables used is independent of the size of the array.
 def insert_ascending(array, length, value_to_insert)
   if array[length - 1] != SPECIAL_VALUE
     return "No room :("

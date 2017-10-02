@@ -1,11 +1,9 @@
-require './restricted_array.rb'
+require './using_restricted_array.rb'
 
 # A restricted array could be constructed of a given size like so
-size = 5
-my_integer_array = RestrictedArray.new(size)
+my_integer_array = RestrictedArray.new(5)
 my_integer_array_length = length(my_integer_array)
-puts "The length of my integer array is #{my_integer_array_length}, which should be the same as #{size}."
-puts "BUG!" if my_integer_array_length != size
+puts "BUG! length of array should be 5" if my_integer_array_length != 5
 puts
 
 # A restricted array could be constructed of a random size (1 to 20) like so

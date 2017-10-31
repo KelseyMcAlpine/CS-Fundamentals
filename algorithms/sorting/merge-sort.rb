@@ -32,6 +32,24 @@ def combine(left, right)
   [smallest_number].concat(combine(left, right))
 end
 
+def combine2(a, b)
+    result = []
+    while !a.empty? && !b.empty?
+        if a.first < b.first
+          result << a.shift
+        else
+          result << b.shift
+        end
+    end
+    while !a.empty?
+      result << a.shift
+    end
+    while !b.empty?
+      result << b.shift
+    end
+    return result
+end
+
 # TEST IT
 a = [6,23,53,1,2,5,62,61,33,21,14,6,23]
 a = a.shuffle
